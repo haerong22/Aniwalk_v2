@@ -4,18 +4,18 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity
 @Data
-public class DogImg {
+@Entity
+public class Certificate {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "dog_img_id")
+    @Column(name = "certificate_id")
     private Long id;
 
     @Column(length = 1000)
     private String image;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dog_id")
-    private Dog dog;
+    @JoinColumn(name = "walker_id")
+    private Walker walker;
 }
