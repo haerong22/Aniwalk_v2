@@ -1,4 +1,4 @@
-package com.pandorabox.aniwalk.controller;
+package com.pandorabox.aniwalk.web;
 
 import com.pandorabox.aniwalk.domain.CommonResponse;
 import org.springframework.http.HttpStatus;
