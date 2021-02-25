@@ -19,7 +19,7 @@ public class MemberService {
         Page<Member> result = memberRepository.findAll(
                 PageRequest.of(page - 1, 5, Sort.by("id").descending())
         );
-        return new PageImpl<MemberListResp>(result
+        return new PageImpl<>(result
                 .stream()
                 .map(v -> MemberListResp.builder()
                         .kakaoId(v.getKakaoId())
@@ -35,3 +35,4 @@ public class MemberService {
         return save.getId();
     }
 }
+
