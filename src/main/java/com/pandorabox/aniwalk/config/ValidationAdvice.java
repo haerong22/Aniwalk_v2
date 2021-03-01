@@ -1,6 +1,10 @@
 package com.pandorabox.aniwalk.config;
 
 import com.pandorabox.aniwalk.domain.CommonResponse;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -8,6 +12,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -38,3 +43,4 @@ public class ValidationAdvice {
         return errorMap.isEmpty() ? proceedingJoinPoint.proceed() : new CommonResponse<>(HttpStatus.BAD_REQUEST.value(), errorMap);
     }
 }
+

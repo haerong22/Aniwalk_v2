@@ -19,14 +19,10 @@ public class MemberService {
         Page<Member> result = memberRepository.findAll(
                 PageRequest.of(page - 1, 5, Sort.by("id").descending())
         );
-        return new PageImpl<>(result
-                .stream()
-                .map(v -> MemberListResp.builder()
-                        .kakaoId(v.getKakaoId())
-                        .nickname(v.getNickname())
-                        .phone(v.getPhone())
-                        .build())
-                .collect(Collectors.toList()), result.getPageable(), result.getTotalElements()
+        return new PageImpl<>(
+                result.stream().map(MemberListResp::of).collect(Collectors.toList()),
+                result.getPageable(),
+                result.getTotalElements()
         );
     }
 
