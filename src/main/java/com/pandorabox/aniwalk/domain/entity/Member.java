@@ -1,6 +1,5 @@
 package com.pandorabox.aniwalk.domain.entity;
 
-import com.pandorabox.aniwalk.domain.entity.enumtype.RoleType;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -22,14 +21,11 @@ public class Member {
 
     @Column(unique = true, nullable = false)
     private String kakaoId;
-    private int point;
+    private Integer point;
     private String phone;
 
     @Column(length = 1000)
     private String profileImg;
-
-    @Enumerated(EnumType.STRING)
-    private RoleType role;
 
     @OneToMany(mappedBy = "member")
     List<Dog> dogList = new ArrayList<>();
@@ -40,4 +36,8 @@ public class Member {
     @CreationTimestamp
     private LocalDateTime joinDate;
 
+    @PrePersist
+    private void prePersist() {
+        point = point == null ? 0 : point;
+    }
 }

@@ -1,4 +1,4 @@
-package com.pandorabox.aniwalk.domain.network.request;
+package com.pandorabox.aniwalk.domain.network.request.manager;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

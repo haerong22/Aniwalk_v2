@@ -3,14 +3,22 @@ package com.pandorabox.aniwalk.domain.entity;
 import com.pandorabox.aniwalk.domain.entity.enumtype.ActiveStatus;
 import com.pandorabox.aniwalk.domain.entity.enumtype.ApplyStatus;
 import com.pandorabox.aniwalk.domain.entity.enumtype.EventAgree;
+import com.pandorabox.aniwalk.domain.network.request.walker.WalkerJoinReq;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Walker {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +28,13 @@ public class Walker {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String nickname;
     private String password;
 
     @Column(nullable = false)
     private String phone;
-    private LocalDateTime birth;
+    private LocalDate birth;
     private String email;
     private String address;
 
@@ -42,7 +50,7 @@ public class Walker {
 
     @Column(length = 3000)
     private String intro;
-    private int point;
+    private Integer point;
 
     @OneToMany(mappedBy = "walker")
     private List<Certificate> certificates;
@@ -59,5 +67,26 @@ public class Walker {
     private EventAgree eventAgree;
     @Enumerated(EnumType.STRING)
     private ApplyStatus applyStatus;
+
+    @PrePersist
+    private void prePersist() {
+        point = point == null ? 0 : point;
+        activeStatus = activeStatus == null ? ActiveStatus.ACTIVATION : activeStatus;
+        eventAgree = eventAgree == null ? EventAgree.AGREE : eventAgree;
+        applyStatus = applyStatus == null ? ApplyStatus.WAITING : applyStatus;
+    }
+
+    public static Walker of(WalkerJoinReq walkerJoinReq) {
+        return Walker.builder()
+                .eventAgree(walkerJoinReq.getEventAgree())
+                .name(walkerJoinReq.getName())
+                .phone(walkerJoinReq.getPhone())
+                .birth(walkerJoinReq.getBirth())
+                .address(walkerJoinReq.getAddress())
+                .email(walkerJoinReq.getEmail())
+                .intro(walkerJoinReq.getIntro())
+                .location1(walkerJoinReq.getLocation1())
+                .build();
+    }
 
 }

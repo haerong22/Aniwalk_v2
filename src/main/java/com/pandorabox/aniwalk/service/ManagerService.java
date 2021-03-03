@@ -1,7 +1,7 @@
 package com.pandorabox.aniwalk.service;
 
 import com.pandorabox.aniwalk.domain.entity.Manager;
-import com.pandorabox.aniwalk.domain.network.request.ManagerReq;
+import com.pandorabox.aniwalk.domain.network.request.manager.ManagerReq;
 import com.pandorabox.aniwalk.repository.ManagerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

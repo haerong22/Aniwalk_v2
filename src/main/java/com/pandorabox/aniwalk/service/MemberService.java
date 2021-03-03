@@ -1,7 +1,7 @@
 package com.pandorabox.aniwalk.service;
 
 import com.pandorabox.aniwalk.domain.entity.Member;
-import com.pandorabox.aniwalk.domain.network.response.MemberListResp;
+import com.pandorabox.aniwalk.domain.network.response.member.MemberListResp;
 import com.pandorabox.aniwalk.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;

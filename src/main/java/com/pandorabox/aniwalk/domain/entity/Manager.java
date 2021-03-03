@@ -1,7 +1,6 @@
 package com.pandorabox.aniwalk.domain.entity;
 
-import com.pandorabox.aniwalk.domain.network.request.ManagerReq;
-import lombok.Data;
+import com.pandorabox.aniwalk.domain.network.request.manager.ManagerReq;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

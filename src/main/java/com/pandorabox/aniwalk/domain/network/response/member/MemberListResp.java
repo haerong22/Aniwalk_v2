@@ -1,4 +1,4 @@
-package com.pandorabox.aniwalk.domain.network.response;
+package com.pandorabox.aniwalk.domain.network.response.member;
 
 import com.pandorabox.aniwalk.domain.entity.Member;
 import lombok.AllArgsConstructor;

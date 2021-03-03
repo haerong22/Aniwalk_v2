@@ -1,7 +1,7 @@
 package com.pandorabox.aniwalk.web;
 
 import com.pandorabox.aniwalk.domain.CommonResponse;
-import com.pandorabox.aniwalk.domain.network.request.ManagerReq;
+import com.pandorabox.aniwalk.domain.network.request.manager.ManagerReq;
 import com.pandorabox.aniwalk.service.ManagerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
