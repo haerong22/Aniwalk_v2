@@ -1,9 +1,8 @@
 package com.pandorabox.aniwalk.web;
 
 import com.pandorabox.aniwalk.domain.CommonResponse;
-import com.pandorabox.aniwalk.domain.entity.Member;
 import com.pandorabox.aniwalk.domain.network.request.member.MemberJoinReq;
-import com.pandorabox.aniwalk.domain.network.request.member.MemberSearchReq;
+import com.pandorabox.aniwalk.domain.network.request.SearchReq;
 import com.pandorabox.aniwalk.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +19,8 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping("/member")
-    public ResponseEntity<?> findAll(MemberSearchReq memberSearchReq) {
-        return ResponseEntity.ok().body(memberService.getMember(memberSearchReq));
+    public ResponseEntity<?> findMember(SearchReq searchReq) {
+        return ResponseEntity.ok().body(CommonResponse.ok(memberService.getMemberList(searchReq)));
     }
 
     @PostMapping("/member")

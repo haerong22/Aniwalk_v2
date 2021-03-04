@@ -1,4 +1,4 @@
-package com.pandorabox.aniwalk.domain.network.request.member;
+package com.pandorabox.aniwalk.domain.network.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MemberSearchReq {
+public class SearchReq {
 
     private int page = 1;
 
