@@ -1,6 +1,6 @@
 package com.pandorabox.aniwalk.domain.entity;
 
-import com.pandorabox.aniwalk.domain.network.request.manager.ManagerReq;
+import com.pandorabox.aniwalk.domain.network.request.manager.ManagerJoinReq;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,8 +19,8 @@ public class Manager {
     private String nickname;
     private String password;
 
-    public Manager(ManagerReq managerReq){
-        nickname = managerReq.getNickname();
-        password = managerReq.getPassword();
+    public Manager(ManagerJoinReq managerJoinReq){
+        nickname = managerJoinReq.getNickname();
+        password = managerJoinReq.getPassword();
     }
 }

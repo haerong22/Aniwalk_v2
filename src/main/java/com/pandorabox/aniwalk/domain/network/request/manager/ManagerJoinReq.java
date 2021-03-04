@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ManagerReq {
+public class ManagerJoinReq {
 
     @Length(max = 20, message = "최대 길이를 초과하였습니다.")
     @NotBlank(message = "관리자 닉네임을 입력하세요.")
