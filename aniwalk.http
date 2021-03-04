@@ -1,0 +1,12 @@
+POST http://localhost:8080/member
+Content-Type: application/json
+
+{
+  "nickname": "",
+  "kakaoId": "",
+  "phone": "",
+  "profileImg": "hi_profile_img.png"
+}
+
+###
+GET http://localhost:8080/member

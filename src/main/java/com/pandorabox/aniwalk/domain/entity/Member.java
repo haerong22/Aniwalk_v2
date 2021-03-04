@@ -1,6 +1,10 @@
 package com.pandorabox.aniwalk.domain.entity;
 
+import com.pandorabox.aniwalk.domain.network.request.member.MemberJoinReq;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -10,6 +14,9 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,8 +43,19 @@ public class Member {
     @CreationTimestamp
     private LocalDateTime joinDate;
 
+
+
     @PrePersist
     private void prePersist() {
         point = point == null ? 0 : point;
+    }
+
+    public static Member of(MemberJoinReq memberJoinReq) {
+        return Member.builder()
+                .nickname(memberJoinReq.getNickname())
+                .kakaoId(memberJoinReq.getKakaoId())
+                .phone(memberJoinReq.getPhone())
+                .profileImg(memberJoinReq.getProfileImg())
+                .build();
     }
 }

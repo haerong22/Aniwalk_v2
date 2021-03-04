@@ -28,4 +28,11 @@ public class CommonResponse<T> {
                 .data(data)
                 .build();
     }
+
+    public static <T> CommonResponse<?> badRequest(T data) {
+        return CommonResponse.builder()
+                .statusCode(HttpStatus.BAD_REQUEST.value())
+                .data(data)
+                .build();
+    }
 }
