@@ -32,9 +32,9 @@ public class MemberService {
     }
 
     @Transactional
-    public Long save(MemberJoinReq memberJoinReq) {
+    public String save(MemberJoinReq memberJoinReq) {
         Member save = memberRepository.save(Member.of(memberJoinReq));
-        return save.getId();
+        return save.getNickname();
     }
 }
 

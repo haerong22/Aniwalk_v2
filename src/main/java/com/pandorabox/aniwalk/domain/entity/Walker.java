@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -59,6 +60,8 @@ public class Walker {
     private List<Walking> walkingList;
 
     private LocalDateTime activeStartDate;
+
+    @CreationTimestamp
     private LocalDateTime applyDate;
 
     @Enumerated(EnumType.STRING)
@@ -71,7 +74,6 @@ public class Walker {
     @PrePersist
     private void prePersist() {
         point = point == null ? 0 : point;
-        activeStatus = activeStatus == null ? ActiveStatus.ACTIVATION : activeStatus;
         eventAgree = eventAgree == null ? EventAgree.AGREE : eventAgree;
         applyStatus = applyStatus == null ? ApplyStatus.WAITING : applyStatus;
     }

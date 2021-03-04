@@ -1,6 +1,7 @@
 package com.pandorabox.aniwalk.service;
 
 import com.pandorabox.aniwalk.domain.entity.Walker;
+import com.pandorabox.aniwalk.domain.network.request.walker.WalkerJoinReq;
 import com.pandorabox.aniwalk.repository.WalkerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ public class WalkerService {
     private final WalkerRepository walkerRepository;
 
     @Transactional
-    public void save(Walker walker) {
-        walkerRepository.save(walker);
+    public String save(WalkerJoinReq walkerJoinReq) {
+        Walker save = walkerRepository.save(Walker.of(walkerJoinReq));
+        return save.getName();
     }
 }

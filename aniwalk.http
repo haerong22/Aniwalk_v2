@@ -1,4 +1,4 @@
-POST http://localhost:8080/member
+POST http://localhost:8080/api/member
 Content-Type: application/json
 
 {
@@ -9,4 +9,19 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/member
+GET http://localhost:8080/api/member
+
+###
+POST http://localhost:8080/api/walker
+Content-Type: application/json
+
+{
+  "eventAgree": "AGREE",
+  "name": "홍길동",
+  "phone": "010-1234-6666",
+  "birth": "",
+  "address": "서울시 강남구",
+  "email": "email@naver.com",
+  "intro": "ㅎㅇㅎㅇ",
+  "location1": "서울시 강남구"
+}
