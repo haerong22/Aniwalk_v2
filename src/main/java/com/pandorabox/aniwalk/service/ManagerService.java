@@ -15,7 +15,8 @@ public class ManagerService {
     private final ManagerRepository managerRepository;
 
     @Transactional
-    public void save(ManagerJoinReq managerJoinReq) {
-        managerRepository.save(new Manager(managerJoinReq));
+    public String save(ManagerJoinReq managerJoinReq) {
+        Manager save = managerRepository.save(new Manager(managerJoinReq));
+        return save.getNickname();
     }
 }

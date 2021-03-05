@@ -1,5 +1,6 @@
 package com.pandorabox.aniwalk.domain.entity;
 
+import com.pandorabox.aniwalk.Utils.PasswordUtils;
 import com.pandorabox.aniwalk.domain.network.request.manager.ManagerJoinReq;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,12 +16,14 @@ public class Manager {
     @Column(name = "manager_id")
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String nickname;
+
+    @Column(nullable = false)
     private String password;
 
     public Manager(ManagerJoinReq managerJoinReq){
         nickname = managerJoinReq.getNickname();
-        password = managerJoinReq.getPassword();
+        password = PasswordUtils.encryptPassword(managerJoinReq.getPassword());
     }
 }

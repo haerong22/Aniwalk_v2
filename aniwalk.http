@@ -28,3 +28,12 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/walker
+
+###
+POST http://localhost:8080/api/manager
+Content-Type: application/json
+
+{
+  "nickname": "manager",
+  "password": "1234"
+}
