@@ -37,3 +37,6 @@ Content-Type: application/json
   "nickname": "manager",
   "password": "1234"
 }
+
+###
+GET http://localhost:8080/api/manager

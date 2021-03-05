@@ -23,4 +23,9 @@ public class ManagerController {
         return ResponseEntity.ok().body(CommonResponse.created(managerService.save(managerJoinReq)));
     }
 
+    @GetMapping("/manager")
+    public ResponseEntity<?> getManagers() {
+        return ResponseEntity.ok().body(CommonResponse.ok(managerService.findAll()));
+    }
+
 }

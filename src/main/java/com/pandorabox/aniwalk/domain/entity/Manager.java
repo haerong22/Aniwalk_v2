@@ -4,8 +4,10 @@ import com.pandorabox.aniwalk.Utils.PasswordUtils;
 import com.pandorabox.aniwalk.domain.network.request.manager.ManagerJoinReq;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Entity
@@ -21,6 +23,9 @@ public class Manager {
 
     @Column(nullable = false)
     private String password;
+
+    @CreationTimestamp
+    private LocalDateTime regDate;
 
     public Manager(ManagerJoinReq managerJoinReq){
         nickname = managerJoinReq.getNickname();
